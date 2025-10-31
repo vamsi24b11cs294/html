@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTTP Client Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7ff;
+      padding: 30px;
+    }
+    h1 {
+      color: #2b3a67;
+    }
+    pre {
+      background: #fff;
+      border: 1px solid #cbd3e3;
+      border-radius: 8px;
+      padding: 15px;
+      white-space: pre-wrap;
+      margin-top: 20px;
+    }
+    button {
+      background-color: #2b3a67;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #3d4b80;
+    }
+  </style>
+</head>
+<body>
+  <h1>Client HTML — Fetching data from Node.js Server</h1>
+  <p>Click the button below to send a request to the Node.js HTTP server.</p>
+  <button onclick="getData()">Get Server Response</button>

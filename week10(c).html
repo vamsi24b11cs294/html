@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Source Technologies</title>
+  <style>
+    body { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; padding: 32px; background:#f7f8fb; color:#111; }
+    h1 { margin-bottom: 8px; font-size: 28px; }
+    p.lead { margin-top:0; color:#555; margin-bottom:20px; }
+    .chips { display:flex; flex-wrap:wrap; gap:10px; }
+    .chip {
+      background: white;
+      border: 1px solid #e2e6ef;
+      padding: 8px 12px;
+      border-radius: 999px;
+      box-shadow: 0 1px 3px rgba(16,24,40,0.04);
+      font-size:14px;
+    }
+    table {
+      border-collapse: collapse;
+      margin-top:18px;
+      width: 100%;
+      max-width: 720px;
+      background: #fff;
+    }
+    th, td {
+      padding: 10px 12px;
+      border: 1px solid #e8edf7;
+      text-align: left;
+    }
+    th { background:#f2f6ff; font-weight:600; }
+    .container { max-width:900px; margin:auto; }
+    .note { color:#666; font-size:13px; margin-top:12px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Technologies</h1>
+    <p class="lead">List converted from: <code>HTML,CSS,JavaScript,TypeScript,MongoDB,Express.js,React.js,Node.js</code></p>
+
+    <!-- Chips -->
+    <div class="chips" role="list">
+      <span class="chip">HTML</span>
+      <span class="chip">CSS</span>
+      <span class="chip">JavaScript</span>
+      <span class="chip">TypeScript</span>
+      <span class="chip">MongoDB</span>
+      <span class="chip">Express.js</span>
+      <span class="chip">React.js</span>
+      <span class="chip">Node.js</span>
+    </div>
+
+    <!-- Simple table -->
+    <table aria-labelledby="tableTitle">
+      <caption id="tableTitle" style="caption-side: top; text-align:left; font-weight:600; padding-bottom:8px;">Technologies table</caption>
+      <thead>
+        <tr><th>#</th><th>Name</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>HTML</td></tr>
+        <tr><td>2</td><td>CSS</td></tr>
+        <tr><td>3</td><td>JavaScript</td></tr>
+        <tr><td>4</td><td>TypeScript</td></tr>
+        <tr><td>5</td><td>MongoDB</td></tr>
+        <tr><td>6</td><td>Express.js</td></tr>
+        <tr><td>7</td><td>React.js</td></tr>
+        <tr><td>8</td><td>Node.js</td></tr>
+      </tbody>
+    </table>
+
+    <p class="note">Static file — edit the HTML to change the list.</p>
+  </div>
+</body>
+</html>

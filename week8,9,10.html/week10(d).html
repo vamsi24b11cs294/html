@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>URL Parsing Example (JavaScript in Browser)</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background-color: #f8faff;
+      color: #222;
+      padding: 40px;
+    }
+    h2 {
+      color: #1f3c88;
+    }
+    input {
+      width: 80%;
+      padding: 10px;
+      font-size: 15px;
+      border: 1px solid #ccd6f6;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #1f3c88;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+    button:hover {
+      background-color: #2a4ba7;
+    }
+    table {
+      margin-top: 25px;
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 700px;
+      background-color: white;
+    }
+    th, td {
+      text-align: left;
+      padding: 10px;
+      border: 1px solid #d8e1ff;
+    }
+    th {
+      background-color: #edf2ff;
+      font-weight: 600;
+    }
+    pre {
+      background: #f4f7ff;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 14px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h2>🔍 URL Parsing Example (Browser Version)</h2>
+  <p>Enter a URL below and click "Parse URL" to see its components.</p>
+  
+  <input id="urlInput" value="https://www.example.com:8080/path/page.html?user=sri&status=active#section2" />
+  <button onclick="parseURL()">Parse URL</button>
+
+  <table id="resultTable" hidden>
+    <tr><th>Component</th><th>Value</th></tr>
+    <tr><td>Href</td><td id="href"></td></tr>
+    <tr><td>Protocol</td><td id="protocol"></td></tr>
+    <tr><td>Host</td><td id="host"></td></tr>
+    <tr><td>Port</td><td id="port"></td></tr>
+    <tr><td>Hostname</td><td id="hostname"></td></tr>
+    <tr><td>Pathname</td><td id="pathname"></td></tr>
+    <tr><td>Search</td><td id="search"></td></tr>
+    <tr><td>Query Object</td><td><pre id="query"></pre></td></tr>
+    <tr><td>Hash</td><td id="hash"></td></tr>
+  </table>
+
+  <script>
+    function parseURL() {
+      const input = document.getElementById("urlInput").value.trim();
+
+      try {
+        const parsed = new URL(input);
+
+        // Convert query string into object
+        const params = {};
+        parsed.searchParams.forEach((value, key) => {
+          params[key] = value;
+        });
+
+        // Display values
+        document.getElementById("href").textContent = parsed.href;
+        document.getElementById("protocol").textContent = parsed.protocol;
+        document.getElementById("host").textContent = parsed.host;
+        document.getElementById("port").textContent = parsed.port || "(none)";
+        document.getElementById("hostname").textContent = parsed.hostname;
+        document.getElementById("pathname").textContent = parsed.pathname;
+        document.getElementById("search").textContent = parsed.search || "(none)";
+        document.getElementById("query").textContent = JSON.stringify(params, null, 2);
+        document.getElementById("hash").textContent = parsed.hash || "(none)";
+
+        document.getElementById("resultTable").hidden = false;
+      } catch (err) {
+        alert("Invalid URL! Please enter a valid URL.");
+      }
+    }
+
+    // Parse the default URL when the page loads
+    window.onload = parseURL;
+  </script>
+</body>
+</html>
